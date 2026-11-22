@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.platform.mapper.DiningTableMapper">
+
+    <select id="queryPage" resultType="com.project.platform.entity.DiningTable">
+        SELECT
+        -- 【修改点1】去掉 d.*，改为明确列出所有字段（除了 status），防止列名冲突！
+        d.id, d.table_no, d.area, d.capacity, d.qr_token, d.pos_x, d.pos_y, d.shape,
+
+        CASE
+        -- 1. 如果有已确认/已到店的预订，显示预留
+        WHEN EXISTS (
+        SELECT 1 FROM reservation r
+        WHERE r.table_id = d.id
+        AND r.reserve_date = #{query.date}
+        <if test="query.period != null and query.period != ''">
+            <choose>
+                <when test="query.period == '晚市'">
+                    AND r.reserve_time &gt;= '15:00' AND r.reserve_time &lt;= '23:59'
+                </when>
+                <when test="query.period == '午市'">
+                    AND r.reserve_time &gt;= '10:00' AND r.reserve_time &lt;= '14:59'
+                </when>
+            </choose>
+        </if>
+        AND r.status IN ('已确认', '已到店')
+        ) THEN '预留'
+
+        -- 2. 如果是今天，且基础状态是占用，显示占用
+        WHEN #{query.date} = DATE_FORMAT(CURDATE(), '%Y-%m-%d') AND d.status = '占用' THEN '占用'
+
+        -- 3. 其他情况显示空闲
+        ELSE '空闲'
+        -- 【修改点2】这里用 status 作为别名，返回给实体类
+        END as status
+
+        FROM dining_table d
+        <include refid="queryConditions"/>
+        ORDER BY d.table_no ASC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 平面图专用：查询所有桌子并计算状态 -->
+    <select id="selectAllWithStatus" resultType="com.project.platform.entity.DiningTable">
+        SELECT
+        d.id, d.table_no, d.area, d.capacity, d.qr_token, d.pos_x, d.pos_y, d.shape,
+        CASE
+        WHEN EXISTS (
+        SELECT 1 FROM reservation r
+        WHERE r.table_id = d.id
+        AND r.reserve_date = #{date}
+        <if test="period != null and period != ''">
+            <choose>
+                <when test="period == '晚市'">
+                    AND r.reserve_time &gt;= '15:00' AND r.reserve_time &lt;= '23:59'
+                </when>
+                <when test="period == '午市'">
+                    AND r.reserve_time &gt;= '10:00' AND r.reserve_time &lt;= '14:59'
+                </when>
+            </choose>
+        </if>
+        AND r.status IN ('已确认', '已到店')
+        ) THEN '预留'
+        WHEN #{date} = DATE_FORMAT(CURDATE(), '%Y-%m-%d') AND d.status = '占用' THEN '占用'
+        ELSE '空闲'
+        END as status
+        FROM dining_table d
+        ORDER BY d.table_no ASC
+    </select>
+
+    <select id="queryCount" resultType="int">
+        SELECT count(id) FROM dining_table
+        <include refid="queryConditions"/>
+    </select>
+
+    <select id="selectAll" resultType="com.project.platform.entity.DiningTable">
+        SELECT * FROM dining_table ORDER BY table_no ASC
+    </select>
+
+    <sql id="queryConditions">
+        <where>
+            <if test="query.tableNo != null and query.tableNo.trim() != ''">
+                AND table_no LIKE CONCAT('%', #{query.tableNo}, '%')
+            </if>
+            <if test="query.area != null and query.area.trim() != ''">
+                AND area = #{query.area}
+            </if>
+        </where>
+    </sql>
+
+    <insert id="insert" parameterType="com.project.platform.entity.DiningTable" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dining_table (table_no, area, capacity, qr_token, status, pos_x, pos_y, shape)
+        VALUES (#{tableNo}, #{area}, #{capacity}, #{qrToken}, #{status}, #{posX}, #{posY}, #{shape})
+    </insert>
+
+    <update id="updateById" parameterType="com.project.platform.entity.DiningTable">
+        UPDATE dining_table
+        <set>
+            <if test="tableNo != null">table_no = #{tableNo},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="capacity != null">capacity = #{capacity},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="posX != null">pos_x = #{posX},</if>
+            <if test="posY != null">pos_y = #{posY},</if>
+            <if test="shape != null">shape = #{shape},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="removeByIds">
+        DELETE FROM dining_table WHERE id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectAvailableTables" resultType="com.project.platform.entity.DiningTable">
+        SELECT * FROM dining_table
+        WHERE capacity >= #{peopleCount}
+        AND id NOT IN (
+        SELECT table_id FROM reservation
+        WHERE reserve_date = #{reserveDate}
+        AND status IN ('待确认', '已确认', '已到店')
+        AND table_id IS NOT NULL
+        AND (
+        (reserve_time &gt;= #{startTime} AND reserve_time &lt;= #{endTime})
+        )
+        )
+        ORDER BY capacity ASC, table_no ASC
+    </select>
+</mapper>

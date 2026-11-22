@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>verify</title>
+<style>body{background:#101010;color:#fff;font:14px monospace;padding:20px;white-space:pre}</style>
+</head><body><div id="out">running</div>
+<script>
+const files = ["01-前台首页.png","02-菜单.png","03-菜品详情.png","04-桌码点餐-手机.png","05-后台看板.png","06-后台菜品管理.png","07-后台订单与详情抽屉.png"];
+let done = 0, lines = [];
+files.forEach(f => {
+  const im = new Image();
+  im.onload = () => { lines.push(`IMG OK   ${f}  ${im.naturalWidth}x${im.naturalHeight}`); if (++done === files.length) flush(); };
+  im.onerror = () => { lines.push(`IMG FAIL ${f}`); if (++done === files.length) flush(); };
+  im.src = f;
+});
+// 同时检查 src 里的样式表能否加载（用 iframe 载入一个 src 页面，读其样式表数量）
+function flush(){
+  const ifr = document.createElement('iframe');
+  ifr.src = 'src/03-front-dish.html';
+  ifr.onload = () => {
+    let css = -1;
+    try { css = ifr.contentDocument.styleSheets.length; } catch(e) { css = 'blocked'; }
+    document.getElementById('out').textContent = 'RESULT\n' + lines.join('\n') + `\nCSS_IN_SRC=${css}`;
+  };
+  ifr.style.cssText = 'width:400px;height:200px;position:absolute;left:-9999px';
+  document.body.appendChild(ifr);
+}
+</script></body></html>

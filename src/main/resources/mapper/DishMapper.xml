@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.platform.mapper.DishMapper">
+    <!--联动查询，拿到分类名字-->
+    <select id="queryPage" resultType="com.project.platform.entity.Dish">
+        SELECT d.*,c.name as categoryName
+        FROM dish d
+        LEFT JOIN category c ON d.category_id = c.id
+        <include refid="queryConditions"/>
+        ORDER BY d.sort ASC,d.id DESC
+        LIMIT #{offset},#{pageSize}
+    </select>
+    <select id="queryCount" resultType="int">
+        SELECT count(d.id) FROM dish d
+        <include refid="queryConditions"/>
+    </select>
+
+    <sql id="queryConditions">
+        <where>
+            <if test="query.name != null and query.name.trim() != ''">
+                AND d.name LIKE CONCAT('%',#{query.name},'%')
+            </if>
+            <if test="query.categoryId != null">
+                AND d.category_id = #{query.categoryId}
+            </if>
+            <if test="query.status != null and query.status.trim() != ''">
+                AND d.status = #{query.status}
+            </if>
+            <if test="query.isSignature != null">
+                AND d.is_signature = #{query.isSignature}
+            </if>
+        </where>
+    </sql>
+
+    <insert id="insert" parameterType="com.project.platform.entity.Dish" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dish
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="categoryId != null">category_id,</if>
+            <if test="name != null">name,</if>
+            <if test="nameEn != null">name_en,</if>
+            <if test="coverUrl != null">cover_url,</if>
+            <if test="description != null">description,</if>
+            <if test="price != null">price,</if>
+            <if test="stock != null">stock,</if>
+            <if test="isSignature != null">is_signature,</if>
+            <if test="isRecommend != null">is_recommend,</if>
+            <if test="sort != null">sort,</if>
+            <if test="status != null">status,</if>
+            <if test="ingredients != null">ingredients,</if>
+            <if test="spicyLevel != null">spicy_level,</if>
+            <if test="pairing != null">pairing,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="name != null">#{name},</if>
+            <if test="nameEn != null">#{nameEn},</if>
+            <if test="coverUrl != null">#{coverUrl},</if>
+            <if test="description != null">#{description},</if>
+            <if test="price != null">#{price},</if>
+            <if test="stock != null">#{stock},</if>
+            <if test="isSignature != null">#{isSignature},</if>
+            <if test="isRecommend != null">#{isRecommend},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="status != null">#{status},</if>
+            <if test="ingredients != null">#{ingredients},</if>
+            <if test="spicyLevel != null">#{spicyLevel},</if>
+            <if test="pairing != null">#{pairing},</if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.project.platform.entity.Dish">
+        UPDATE dish
+        <set>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="nameEn != null">name_en = #{nameEn},</if>
+            <if test="coverUrl != null">cover_url = #{coverUrl},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="stock != null">stock = #{stock},</if>
+            <if test="isSignature != null">is_signature = #{isSignature},</if>
+            <if test="isRecommend != null">is_recommend = #{isRecommend},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="ingredients != null">ingredients = #{ingredients},</if>
+            <if test="spicyLevel != null">spicy_level = #{spicyLevel},</if>
+            <if test="pairing != null">pairing = #{pairing},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="removeByIds">
+        DELETE FROM dish WHERE id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <!--根据id查询单个菜品-->
+    <select id="selectById" resultType="com.project.platform.entity.Dish">
+        SELECT * FROM dish WHERE id = #{id}
+    </select>
+</mapper>

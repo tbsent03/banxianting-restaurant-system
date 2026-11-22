@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>拾光 · 设计稿总览</title>
+<style>
+  body{margin:0;background:#101010;color:#F7F3EC;font-family:'Noto Sans SC','Microsoft YaHei',sans-serif;padding:48px 56px 96px}
+  h1{font-family:'Noto Serif SC',Georgia,serif;font-size:34px;font-weight:500;letter-spacing:.1em;margin:0 0 10px}
+  .sub{color:#8B857C;font-size:13px;letter-spacing:.16em;margin-bottom:40px}
+  .grid{display:flex;flex-direction:column;gap:48px;max-width:1100px}
+  .item{border:1px solid rgba(198,161,91,.22);border-radius:12px;overflow:hidden;background:#1C1B19}
+  .cap{display:flex;align-items:baseline;gap:14px;padding:16px 22px;border-bottom:1px solid rgba(247,243,236,.08)}
+  .cap b{font-family:'Noto Serif SC',Georgia,serif;font-size:17px;font-weight:500;letter-spacing:.06em}
+  .cap span{font-size:12px;color:#8B857C;letter-spacing:.08em}
+  img{display:block;width:100%}
+  .note{max-width:760px;font-size:13px;line-height:2;color:#8B857C;margin-bottom:40px}
+  .note b{color:#C6A15B;font-weight:400}
+</style></head>
+<body>
+  <h1>拾光 · SHIGUANG</h1>
+  <div class="sub">高级餐厅点餐系统 · 界面设计稿（对应《施工手册》§6 墨金暗调方案）</div>
+  <div class="note">
+    这些是<b>设计稿</b>，不是运行中的系统截图：结构与配色可直接照做，照片位置是占位块（右下角标注 <b>PHOTO 4:3</b>），正式版换成统一的真实菜品摄影。
+    可编辑的 HTML 源在 <b>src\</b> 目录，改完用浏览器打开即可看到效果。
+  </div>
+  <div class="grid">
+    <div class="item"><div class="cap"><b>01 前台首页</b><span>Hero / 招牌菜 / 主厨手记 / 订位 CTA / 页脚 · 对应 M2</span></div><img src="01-前台首页.png" alt="前台首页"></div>
+    <div class="item"><div class="cap"><b>02 菜单</b><span>左侧分类 + 三列菜品网格 + 排序搜索 · 对应 M2</span></div><img src="02-菜单.png" alt="菜单"></div>
+    <div class="item"><div class="cap"><b>03 菜品详情</b><span>左图右信息 + 规格 + 过敏原 + 底部固定加购栏 · 对应 M2</span></div><img src="03-菜品详情.png" alt="菜品详情"></div>
+    <div class="item"><div class="cap"><b>04 桌码点餐（手机）</b><span>扫码进店 · 桌号识别 · 分类 chips · 悬浮购物车 · 对应 M5</span></div><img src="04-桌码点餐-手机.png" alt="桌码点餐"></div>
+    <div class="item"><div class="cap"><b>05 后台经营看板</b><span>四个指标卡 + 近 7 日折线 + 分类占比 + 待处理 · 对应 M7</span></div><img src="05-后台看板.png" alt="后台看板"></div>
+    <div class="item"><div class="cap"><b>06 后台菜品管理</b><span>搜索卡 / 操作区 / 表格 + 分页 三段式 · 对应 M1</span></div><img src="06-后台菜品管理.png" alt="菜品管理"></div>
+    <div class="item"><div class="cap"><b>07 后台订单管理</b><span>只留 7 列，细节进右侧抽屉 · 对应 M4</span></div><img src="07-后台订单与详情抽屉.png" alt="订单管理"></div>
+  </div>
+</body></html>

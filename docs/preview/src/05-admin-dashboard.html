@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>后台 · 经营看板</title>
+<link rel="stylesheet" href="style.css"></head>
+<body style="background:#F3F2EF">
+<div class="admin">
+  <div class="aside">
+    <div class="logo"><div style="width:26px;height:26px;border-radius:50%;border:1px solid rgba(198,161,91,.6);display:flex;align-items:center;justify-content:center;font-size:11px;color:#C6A15B">拾</div>
+      <div><div class="zh">拾光</div><div class="en">ADMIN</div></div></div>
+    <div class="grp">经营</div>
+    <a class="on"><span class="dot"></span>经营看板</a>
+    <a><span class="dot"></span>订单管理</a>
+    <a><span class="dot"></span>在线订位</a>
+    <div class="grp">菜品</div>
+    <a><span class="dot"></span>菜品管理</a>
+    <a><span class="dot"></span>分类管理</a>
+    <a><span class="dot"></span>桌位与桌码</a>
+    <div class="grp">内容</div>
+    <a><span class="dot"></span>评价管理</a>
+    <div class="grp">系统</div>
+    <a><span class="dot"></span>用户管理</a>
+    <a><span class="dot"></span>管理员管理</a>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">首页 / 经营看板</div>
+      <div class="who"><span style="color:#A79F92;font-size:12px">2026年6月28日 星期日</span><span class="avatar" style="width:28px;height:28px"></span><span>admin</span></div>
+    </div>
+    <div class="content">
+      <div class="page-title">经营看板</div>
+      <div class="stat-row">
+        <div class="card stat"><div class="k">今日营业额</div><div class="v">18,640<span class="u">元</span></div><div class="t">↑ 12.4% 较昨日</div></div>
+        <div class="card stat"><div class="k">今日订单</div><div class="v">42<span class="u">单</span></div><div class="t">↑ 6.8% 较昨日</div></div>
+        <div class="card stat"><div class="k">待接单</div><div class="v" style="color:#B8862F">3<span class="u">单</span></div><div class="t dn">需尽快处理</div></div>
+        <div class="card stat"><div class="k">会员总数</div><div class="v">1,286<span class="u">人</span></div><div class="t">↑ 24 本月新增</div></div>
+      </div>
+
+      <div class="cols">
+        <div class="card">
+          <div class="card-h"><h3>近 7 日营业额</h3><div class="sub">单位：元</div></div>
+          <div class="chart">
+            <svg width="100%" height="240" viewBox="0 0 760 240" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#C6A15B" stop-opacity=".28"/>
+                  <stop offset="100%" stop-color="#C6A15B" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <line x1="30" y1="200" x2="730" y2="200" stroke="#F0EDE7" stroke-width="1"/>
+              <line x1="30" y1="140" x2="730" y2="140" stroke="#F6F3EE" stroke-width="1"/>
+              <line x1="30" y1="80" x2="730" y2="80" stroke="#F6F3EE" stroke-width="1"/>
+              <path d="M30,107 L146.7,88 L263.3,118.5 L380,65 L496.7,82 L613.3,44 L730,64.5 L730,200 L30,200 Z" fill="url(#g1)"/>
+              <polyline points="30,107 146.7,88 263.3,118.5 380,65 496.7,82 613.3,44 730,64.5"
+                        fill="none" stroke="#C6A15B" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+              <circle cx="613.3" cy="44" r="4" fill="#fff" stroke="#C6A15B" stroke-width="2"/>
+              <text x="600" y="30" font-size="11" fill="#8A8578">21,400</text>
+              <text x="24" y="220" font-size="11" fill="#A79F92">6/22</text>
+              <text x="250" y="220" font-size="11" fill="#A79F92">6/24</text>
+              <text x="480" y="220" font-size="11" fill="#A79F92">6/26</text>
+              <text x="705" y="220" font-size="11" fill="#A79F92">6/28</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3>分类销售占比</h3><div class="sub">本月</div></div>
+          <div class="chart" style="display:flex;align-items:center;gap:24px">
+            <svg width="180" height="180" viewBox="0 0 180 180">
+              <g transform="rotate(-90 90 90)" fill="none" stroke-width="22">
+                <circle cx="90" cy="90" r="70" stroke="#EFE9DE"/>
+                <circle cx="90" cy="90" r="70" stroke="#C6A15B" stroke-dasharray="184.7 439.8" stroke-dashoffset="0"/>
+                <circle cx="90" cy="90" r="70" stroke="#8B7A48" stroke-dasharray="79.2 439.8" stroke-dashoffset="-184.7"/>
+                <circle cx="90" cy="90" r="70" stroke="#5F7A63" stroke-dasharray="66 439.8" stroke-dashoffset="-263.9"/>
+                <circle cx="90" cy="90" r="70" stroke="#8E8B86" stroke-dasharray="52.8 439.8" stroke-dashoffset="-329.9"/>
+                <circle cx="90" cy="90" r="70" stroke="#D8C49A" stroke-dasharray="57.2 439.8" stroke-dashoffset="-382.7"/>
+              </g>
+              <text x="90" y="86" text-anchor="middle" font-size="12" fill="#8A8578">本月营收</text>
+              <text x="90" y="110" text-anchor="middle" font-size="20" fill="#1F1E1C" font-family="Georgia">¥ 486,240</text>
+            </svg>
+            <div style="font-size:12px;color:#5C574E;line-height:2.2">
+              <div><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#C6A15B;margin-right:8px"></i>主菜 42%</div>
+              <div><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8B7A48;margin-right:8px"></i>前菜 18%</div>
+              <div><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#5F7A63;margin-right:8px"></i>汤品 15%</div>
+              <div><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#D8C49A;margin-right:8px"></i>酒水 13%</div>
+              <div><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#8E8B86;margin-right:8px"></i>甜点 12%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols" style="grid-template-columns:1fr 1.4fr">
+        <div class="card">
+          <div class="card-h"><h3>热销 Top 5</h3><div class="sub">近 7 日</div></div>
+          <div class="chart" style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:#5C574E;margin-bottom:6px"><span>黑松露和牛配时蔬</span><span style="font-family:Georgia">186</span></div><div style="height:6px;background:#F3F0EA;border-radius:3px"><div style="width:100%;height:6px;background:#C6A15B;border-radius:3px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:#5C574E;margin-bottom:6px"><span>陈年花雕蒸东星斑</span><span style="font-family:Georgia">152</span></div><div style="height:6px;background:#F3F0EA;border-radius:3px"><div style="width:82%;height:6px;background:#C6A15B;border-radius:3px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:#5C574E;margin-bottom:6px"><span>松茸清汤炖花胶</span><span style="font-family:Georgia">131</span></div><div style="height:6px;background:#F3F0EA;border-radius:3px"><div style="width:70%;height:6px;background:#C6A15B;border-radius:3px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:#5C574E;margin-bottom:6px"><span>明前龙井虾仁</span><span style="font-family:Georgia">98</span></div><div style="height:6px;background:#F3F0EA;border-radius:3px"><div style="width:53%;height:6px;background:#D8C49A;border-radius:3px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:12px;color:#5C574E;margin-bottom:6px"><span>桂花酒酿冰淇淋</span><span style="font-family:Georgia">76</span></div><div style="height:6px;background:#F3F0EA;border-radius:3px"><div style="width:41%;height:6px;background:#D8C49A;border-radius:3px"></div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3>待处理</h3><div class="sub">3 笔新订单</div></div>
+          <table>
+            <thead><tr><th>单号</th><th>类型</th><th>桌位</th><th>金额</th><th>状态</th><th style="text-align:right">操作</th></tr></thead>
+            <tbody>
+              <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281201</td><td>堂食</td><td>A01</td><td class="tnum">¥ 854.00</td><td><span class="tag gold">待接单</span></td><td style="text-align:right"><span class="btn sm primary" style="height:28px">接单</span></td></tr>
+              <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281158</td><td>堂食</td><td>B03</td><td class="tnum">¥ 1,286.00</td><td><span class="tag gold">待接单</span></td><td style="text-align:right"><span class="btn sm primary" style="height:28px">接单</span></td></tr>
+              <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281142</td><td>预订</td><td>VIP-1</td><td class="tnum">¥ 2,064.00</td><td><span class="tag gold">待接单</span></td><td style="text-align:right"><span class="btn sm primary" style="height:28px">接单</span></td></tr>
+              <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281105</td><td>堂食</td><td>C02</td><td class="tnum">¥ 396.00</td><td><span class="tag blue">制作中</span></td><td style="text-align:right"><span style="font-size:12px;color:#A79F92">已接单 12:05</span></td></tr>
+              <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281052</td><td>自取</td><td>—</td><td class="tnum">¥ 268.00</td><td><span class="tag green">已上菜</span></td><td style="text-align:right"><span style="font-size:12px;color:#A79F92">待结账</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

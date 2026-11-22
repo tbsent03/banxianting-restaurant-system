@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>后台 · 菜品管理</title>
+<link rel="stylesheet" href="style.css"></head>
+<body style="background:#F3F2EF">
+<div class="admin">
+  <div class="aside">
+    <div class="logo"><div style="width:26px;height:26px;border-radius:50%;border:1px solid rgba(198,161,91,.6);display:flex;align-items:center;justify-content:center;font-size:11px;color:#C6A15B">拾</div>
+      <div><div class="zh">拾光</div><div class="en">ADMIN</div></div></div>
+    <div class="grp">经营</div>
+    <a><span class="dot"></span>经营看板</a>
+    <a><span class="dot"></span>订单管理</a>
+    <a><span class="dot"></span>在线订位</a>
+    <div class="grp">菜品</div>
+    <a class="on"><span class="dot"></span>菜品管理</a>
+    <a><span class="dot"></span>分类管理</a>
+    <a><span class="dot"></span>桌位与桌码</a>
+    <div class="grp">内容</div>
+    <a><span class="dot"></span>评价管理</a>
+    <div class="grp">系统</div>
+    <a><span class="dot"></span>用户管理</a>
+    <a><span class="dot"></span>管理员管理</a>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">菜品 / 菜品管理</div>
+      <div class="who"><span class="avatar" style="width:28px;height:28px"></span><span>admin</span></div>
+    </div>
+    <div class="content">
+      <div class="page-title">菜品管理</div>
+
+      <div class="card" style="padding:18px 20px;margin-bottom:16px">
+        <div class="toolbar2">
+          <div class="field">菜品名称</div>
+          <div class="field" style="min-width:130px">全部分类</div>
+          <div class="field" style="min-width:110px">全部状态</div>
+          <div class="btn sm primary" style="height:34px;padding:0 18px">搜索</div>
+          <div class="btn sm line" style="height:34px;padding:0 18px;color:#5C574E;border-color:#E2DED7">重置</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h">
+          <div class="toolbar2">
+            <div class="btn sm primary" style="height:32px;padding:0 16px">+ 新增菜品</div>
+            <div class="btn sm" style="height:32px;padding:0 16px;border:1px solid #E2DED7;color:#8A8578">批量删除</div>
+          </div>
+          <div class="sub">共 24 道菜 · 上架 21</div>
+        </div>
+        <table>
+          <thead><tr><th style="width:44px"><input type="checkbox"></th><th>菜品</th><th>分类</th><th>价格</th><th>销量</th><th>库存</th><th>状态</th><th style="text-align:right">操作</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><div class="cell-dish"><div class="ph"><div class="plate"></div></div><div><div class="n">黑松露和牛配时蔬</div><div class="e">WAGYU · BLACK TRUFFLE</div></div></div></td>
+              <td>主菜</td><td class="tnum">¥ 388.00</td><td class="tnum">186</td><td class="tnum">42</td>
+              <td><span class="tag green">上架</span></td>
+              <td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">编辑</span>&nbsp;&nbsp;&nbsp;<span style="font-size:12.5px;color:#A79F92">下架</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><div class="cell-dish"><div class="ph"><div class="plate small"></div></div><div><div class="n">陈年花雕蒸东星斑</div><div class="e">CORAL TROUT · HUADIAO</div></div></div></td>
+              <td>主菜</td><td class="tnum">¥ 268.00</td><td class="tnum">152</td><td class="tnum">28</td>
+              <td><span class="tag green">上架</span></td>
+              <td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">编辑</span>&nbsp;&nbsp;&nbsp;<span style="font-size:12.5px;color:#A79F92">下架</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><div class="cell-dish"><div class="ph dark"><div class="plate small"></div></div><div><div class="n">松茸清汤炖花胶</div><div class="e">MATSUTAKE · FISH MAW</div></div></div></td>
+              <td>汤品</td><td class="tnum">¥ 198.00</td><td class="tnum">131</td><td class="tnum">35</td>
+              <td><span class="tag green">上架</span></td>
+              <td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">编辑</span>&nbsp;&nbsp;&nbsp;<span style="font-size:12.5px;color:#A79F92">下架</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><div class="cell-dish"><div class="ph"><div class="plate small"></div></div><div><div class="n">明前龙井虾仁</div><div class="e">LONGJING PRAWN</div></div></div></td>
+              <td>主菜</td><td class="tnum">¥ 188.00</td><td class="tnum">98</td><td class="tnum">60</td>
+              <td><span class="tag green">上架</span></td>
+              <td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">编辑</span>&nbsp;&nbsp;&nbsp;<span style="font-size:12.5px;color:#A79F92">下架</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><div class="cell-dish"><div class="ph dark"><div class="plate"></div></div><div><div class="n">黑蒜牛肝菌烩饭</div><div class="e">BLACK GARLIC RISOTTO</div></div></div></td>
+              <td>主菜</td><td class="tnum">¥ 138.00</td><td class="tnum">84</td><td class="tnum">0</td>
+              <td><span class="tag gray">已售罄</span></td>
+              <td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">编辑</span>&nbsp;&nbsp;&nbsp;<span style="font-size:12.5px;color:#A79F92">下架</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><div class="cell-dish"><div class="ph"><div class="plate small"></div></div><div><div class="n">桂花酒酿冰淇淋</div><div class="e">OSMANTHUS ICE CREAM</div></div></div></td>
+              <td>甜点</td><td class="tnum">¥ 68.00</td><td class="tnum">76</td><td class="tnum">120</td>
+              <td><span class="tag gray">已下架</span></td>
+              <td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">编辑</span>&nbsp;&nbsp;&nbsp;<span style="font-size:12.5px;color:#6E8CA8">上架</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pager">
+          <span>共 24 条</span>
+          <div class="nums"><span>10 条/页</span><span>‹</span><span class="on">1</span><span>2</span><span>3</span><span>›</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

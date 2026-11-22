@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>后台 · 订单管理</title>
+<link rel="stylesheet" href="style.css"></head>
+<body style="position:relative;background:#F3F2EF">
+<div class="admin">
+  <div class="aside">
+    <div class="logo"><div style="width:26px;height:26px;border-radius:50%;border:1px solid rgba(198,161,91,.6);display:flex;align-items:center;justify-content:center;font-size:11px;color:#C6A15B">拾</div>
+      <div><div class="zh">拾光</div><div class="en">ADMIN</div></div></div>
+    <div class="grp">经营</div>
+    <a><span class="dot"></span>经营看板</a>
+    <a class="on"><span class="dot"></span>订单管理</a>
+    <a><span class="dot"></span>在线订位</a>
+    <div class="grp">菜品</div>
+    <a><span class="dot"></span>菜品管理</a>
+    <a><span class="dot"></span>分类管理</a>
+    <a><span class="dot"></span>桌位与桌码</a>
+    <div class="grp">内容</div>
+    <a><span class="dot"></span>评价管理</a>
+    <div class="grp">系统</div>
+    <a><span class="dot"></span>用户管理</a>
+    <a><span class="dot"></span>管理员管理</a>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">经营 / 订单管理</div>
+      <div class="who"><span class="avatar" style="width:28px;height:28px"></span><span>admin</span></div>
+    </div>
+    <div class="content">
+      <div class="page-title">订单管理</div>
+
+      <div class="card" style="padding:18px 20px;margin-bottom:16px">
+        <div class="toolbar2">
+          <div class="field wide">订单号 / 手机号</div>
+          <div class="field" style="min-width:120px">全部状态</div>
+          <div class="field" style="min-width:190px;color:#5C574E">2026-06-01 ~ 2026-06-28</div>
+          <div class="btn sm primary" style="height:34px;padding:0 18px">搜索</div>
+          <div class="btn sm line" style="height:34px;padding:0 18px;color:#5C574E;border-color:#E2DED7">重置</div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <div class="seg"><span class="on">全部 42</span></div>
+          <div class="seg"><span>待接单 3</span></div>
+          <div class="seg"><span>制作中 5</span></div>
+          <div class="seg"><span>已上菜 8</span></div>
+          <div class="seg"><span>已完成 24</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead><tr><th>订单号</th><th>类型</th><th>桌位</th><th>金额</th><th>状态</th><th>下单时间</th><th style="text-align:right">操作</th></tr></thead>
+          <tbody>
+            <tr style="background:#FDFBF6"><td style="font-family:Georgia;font-size:12.5px">OD202606281201</td><td>堂食</td><td>A01</td><td class="tnum">¥ 854.00</td><td><span class="tag gold">待接单</span></td><td style="color:#8A8578">06-28 12:01</td><td style="text-align:right"><span class="btn sm primary" style="height:28px">接单</span></td></tr>
+            <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281158</td><td>堂食</td><td>B03</td><td class="tnum">¥ 1,286.00</td><td><span class="tag gold">待接单</span></td><td style="color:#8A8578">06-28 11:58</td><td style="text-align:right"><span class="btn sm primary" style="height:28px">接单</span></td></tr>
+            <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281142</td><td>预订</td><td>VIP-1</td><td class="tnum">¥ 2,064.00</td><td><span class="tag gold">待接单</span></td><td style="color:#8A8578">06-28 11:42</td><td style="text-align:right"><span class="btn sm primary" style="height:28px">接单</span></td></tr>
+            <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281105</td><td>堂食</td><td>C02</td><td class="tnum">¥ 396.00</td><td><span class="tag blue">制作中</span></td><td style="color:#8A8578">06-28 11:05</td><td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">上菜</span></td></tr>
+            <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281052</td><td>自取</td><td>—</td><td class="tnum">¥ 268.00</td><td><span class="tag green">已上菜</span></td><td style="color:#8A8578">06-28 10:52</td><td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">结账</span></td></tr>
+            <tr><td style="font-family:Georgia;font-size:12.5px">OD202606281036</td><td>堂食</td><td>A05</td><td class="tnum">¥ 1,104.00</td><td><span class="tag green">已上菜</span></td><td style="color:#8A8578">06-28 10:36</td><td style="text-align:right"><span style="font-size:12.5px;color:#B8862F">结账</span></td></tr>
+            <tr><td style="font-family:Georgia;font-size:12.5px">OD202606272308</td><td>堂食</td><td>B01</td><td class="tnum">¥ 732.00</td><td><span class="tag gray">已完成</span></td><td style="color:#8A8578">06-27 23:08</td><td style="text-align:right"><span style="font-size:12.5px;color:#A79F92">详情</span></td></tr>
+            <tr><td style="font-family:Georgia;font-size:12.5px">OD202606272241</td><td>预订</td><td>VIP-2</td><td class="tnum">¥ 3,180.00</td><td><span class="tag gray">已完成</span></td><td style="color:#8A8578">06-27 22:41</td><td style="text-align:right"><span style="font-size:12.5px;color:#A79F92">详情</span></td></tr>
+          </tbody>
+        </table>
+        <div class="pager">
+          <span>共 42 条</span>
+          <div class="nums"><span>10 条/页</span><span>‹</span><span class="on">1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>›</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 订单详情抽屉（右侧滑出，替代把 14 列塞进表格） -->
+<div style="position:absolute;top:64px;right:0;width:480px;bottom:0;background:#fff;box-shadow:-12px 0 40px rgba(20,18,14,.16);border-left:1px solid #EDEAE4">
+  <div class="card-h" style="padding:20px 24px">
+    <div><h3 style="font-size:15px">订单详情</h3><div class="sub" style="font-family:Georgia;margin-top:2px">OD202606281201</div></div>
+    <div style="display:flex;align-items:center;gap:12px"><span class="tag gold">待接单</span><span style="color:#A79F92;font-size:18px">×</span></div>
+  </div>
+  <div style="padding:22px 24px;font-size:13px;color:#3E3A33">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 20px">
+      <div><div style="color:#A79F92;font-size:12px">订单类型</div><div style="margin-top:2px">堂食 · 2 位</div></div>
+      <div><div style="color:#A79F92;font-size:12px">桌位</div><div style="margin-top:2px">A01（大厅）</div></div>
+      <div><div style="color:#A79F92;font-size:12px">联系人</div><div style="margin-top:2px">林小满 · 138 0013 8000</div></div>
+      <div><div style="color:#A79F92;font-size:12px">下单时间</div><div style="margin-top:2px;font-family:Georgia">2026-06-28 12:01</div></div>
+    </div>
+    <div style="margin-top:22px;border-top:1px solid #F0EDE7;padding-top:16px">
+      <div style="font-size:12px;color:#A79F92;margin-bottom:10px">菜品明细（3）</div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #F0EDE7"><span>黑松露和牛配时蔬 <span style="color:#A79F92">× 1</span></span><span class="tnum">¥ 388.00</span></div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #F0EDE7"><span>陈年花雕蒸东星斑 <span style="color:#A79F92">× 1</span></span><span class="tnum">¥ 268.00</span></div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0"><span>松茸清汤炖花胶 <span style="color:#A79F92">× 2</span></span><span class="tnum">¥ 396.00</span></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding-top:16px;border-top:1px solid #F0EDE7">
+      <span style="color:#8A8578">合计</span>
+      <span style="font-family:Georgia;font-size:24px;color:#B8862F">¥ 854.00</span>
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:#A79F92">备注：一位忌香菜，牛肉五分熟</div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 24px;border-top:1px solid #F0EDE7;display:flex;gap:12px">
+    <div class="btn sm" style="height:38px;flex:1;border:1px solid #E2DED7;color:#8A8578;justify-content:center">取消订单</div>
+    <div class="btn sm primary" style="height:38px;flex:2;justify-content:center">接单并通知后厨</div>
+  </div>
+</div>
+</body></html>

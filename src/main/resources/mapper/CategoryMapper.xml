@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.platform.mapper.CategoryMapper">
+
+    <!-- 1. 分页查询 -->
+    <select id="queryPage" resultType="com.project.platform.entity.Category">
+        SELECT category.*
+        FROM category
+        <include refid="queryConditions"/>
+        ORDER BY category.sort ASC, category.id DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 2. 查询总条数 -->
+    <select id="queryCount" resultType="int">
+        SELECT count(category.id) FROM category
+        <include refid="queryConditions"/>
+    </select>
+
+    <!-- 3. 根据ID查询单个 (用于编辑回显) -->
+    <select id="selectById" resultType="com.project.platform.entity.Category">
+        SELECT * FROM category WHERE id = #{id}
+    </select>
+
+    <!-- 4. 查询所有 (用于前台下拉框，不分页) -->
+    <select id="selectAll" resultType="com.project.platform.entity.Category">
+        SELECT * FROM category ORDER BY sort ASC
+    </select>
+
+    <!-- 公共查询条件 -->
+    <sql id="queryConditions">
+        <where>
+            <!-- 搜索条件：分类名称 (模糊查询) -->
+            <if test="query.name != null and query.name.trim() != ''">
+                AND category.name LIKE CONCAT('%', #{query.name}, '%')
+            </if>
+            <!-- 搜索条件：状态 (精确查询) -->
+            <if test="query.status != null and query.status.trim() != ''">
+                AND category.status = #{query.status}
+            </if>
+        </where>
+    </sql>
+
+    <!-- 5. 插入 -->
+    <insert id="insert" parameterType="com.project.platform.entity.Category" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="nameEn != null and nameEn != ''">name_en,</if>
+            <if test="sort != null">sort,</if>
+            <if test="status != null">status,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="nameEn != null and nameEn != ''">#{nameEn},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="status != null">#{status},</if>
+        </trim>
+    </insert>
+
+    <!-- 6. 更新 -->
+    <update id="updateById" parameterType="com.project.platform.entity.Category">
+        UPDATE category
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="nameEn != null">
+                name_en = #{nameEn},
+            </if>
+            <if test="sort != null">
+                sort = #{sort},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 7. 根据ID列表批量删除 -->
+    <delete id="removeByIds">
+        DELETE FROM category
+        WHERE id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectByName" resultType="com.project.platform.entity.Category">
+        SELECT * FROM category WHERE name = #{name} LIMIT 1
+    </select>
+</mapper>

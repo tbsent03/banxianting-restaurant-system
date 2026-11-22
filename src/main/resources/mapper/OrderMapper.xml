@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.platform.mapper.OrderMapper">
+    <select id="queryPage" resultType="com.project.platform.entity.Order">
+        SELECT o.*, u.nickname as userName, t.table_no as tableNo, r.id as reviewId, r.score as reviewScore, r.content as reviewContent, r.reply as reviewReply
+        FROM orders o
+        LEFT JOIN user u ON o.user_id = u.id
+        LEFT JOIN dining_table t ON o.table_id = t.id
+        LEFT JOIN review r ON o.id = r.order_id
+        <include refid="queryConditions"/>
+        ORDER BY o.create_time DESC
+        LIMIT #{offset},#{pageSize}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        SELECT count(o.id) FROM orders o
+        <include refid="queryConditions"/>
+    </select>
+
+    <sql id="queryConditions">
+        <where>
+            <if test="query.orderNo != null and query.orderNo.trim() != ''">
+                AND (
+                o.order_no LIKE CONCAT('%', #{query.orderNo}, '%')
+                OR
+                o.contact_tel LIKE CONCAT('%', #{query.orderNo}, '%')
+                )
+            </if>
+            <if test="query.contactTel != null and query.contactTel.trim() != ''">
+                AND o.contact_tel LIKE CONCAT('%', #{query.contactTel}, '%')
+            </if>
+            <if test="query.status != null and query.status.trim() != ''">
+                AND o.status = #{query.status}
+            </if>
+            <if test="query.startDate != null and query.startDate != ''">
+                AND DATE(o.create_time) &gt;= #{query.startDate}
+            </if>
+            <if test="query.endDate != null and query.endDate != ''">
+                AND DATE(o.create_time) &lt;= #{query.endDate}
+            </if>
+            <if test="query.userId != null"> AND o.user_id = #{query.userId} </if>
+        </where>
+    </sql>
+
+    <select id="selectById" resultType="com.project.platform.entity.Order">
+        SELECT * FROM orders WHERE id = #{id}
+    </select>
+
+    <select id="selectByOrderNo" resultType="com.project.platform.entity.Order">
+        SELECT o.*, u.nickname as userName, t.table_no as tableNo
+        FROM orders o
+                 LEFT JOIN user u ON o.user_id = u.id
+                 LEFT JOIN dining_table t ON o.table_id = t.id
+        WHERE o.order_no = #{orderNo}
+    </select>
+</mapper>

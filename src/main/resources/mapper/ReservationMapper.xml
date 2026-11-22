@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.platform.mapper.ReservationMapper">
+
+    <select id="queryPage" resultType="com.project.platform.entity.Reservation">
+        SELECT r.*, t.table_no as tableNo
+        FROM reservation r
+        LEFT JOIN dining_table t ON r.table_id = t.id
+        <include refid="queryConditions"/>
+        ORDER BY r.reserve_date DESC, r.reserve_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        SELECT count(r.id) FROM reservation r
+        <include refid="queryConditions"/>
+    </select>
+
+    <sql id="queryConditions">
+        <where>
+            <if test="query.contactName != null and query.contactName.trim() != ''">
+                AND r.contact_name LIKE CONCAT('%', #{query.contactName}, '%')
+            </if>
+            <if test="query.contactTel != null and query.contactTel.trim() != ''">
+                AND r.contact_tel LIKE CONCAT('%', #{query.contactTel}, '%')
+            </if>
+            <if test="query.status != null and query.status.trim() != ''">
+                AND r.status = #{query.status}
+            </if>
+            <if test="query.userId != null">
+                AND r.user_id = #{query.userId}
+            </if>
+        </where>
+    </sql>
+
+    <insert id="insert" parameterType="com.project.platform.entity.Reservation" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO reservation (user_id, contact_name, contact_tel, reserve_date, reserve_time, people_count, need_room, remark)
+        VALUES (#{userId}, #{contactName}, #{contactTel}, #{reserveDate}, #{reserveTime}, #{peopleCount}, #{needRoom}, #{remark})
+    </insert>
+
+    <update id="updateById" parameterType="com.project.platform.entity.Reservation">
+        UPDATE reservation
+        <set>
+            <if test="status != null">status = #{status},</if>
+            <if test="tableId != null">table_id = #{tableId},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

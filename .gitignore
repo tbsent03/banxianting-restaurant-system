@@ -1,0 +1,24 @@
+# ---- 前端 ----
+web/node_modules/
+web/dist/
+web/.env.local
+web/.env.*.local
+
+# ---- 后端 (Java/Maven) ----
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ---- IDE & 系统 ----
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ---- 日志 ----
+*.log
+
+# 工具的缓存
+.rivet/

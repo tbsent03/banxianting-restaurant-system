@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>probe</title></head>
+<body style="background:#101010;color:#fff;font-family:sans-serif;padding:20px">
+<div id="out">pending</div>
+<script>
+  const r = {
+    serif: document.fonts.check('64px "Noto Serif SC"'),
+    serif2: document.fonts.check('64px "Source Han Serif SC"'),
+    sans: document.fonts.check('16px "Noto Sans SC"'),
+    georgia: document.fonts.check('16px Georgia'),
+    ua: navigator.userAgent.slice(-40)
+  };
+  document.getElementById('out').textContent = 'PROBE ' + JSON.stringify(r);
+</script>
+</body></html>
