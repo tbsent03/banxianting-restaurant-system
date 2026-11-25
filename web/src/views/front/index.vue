@@ -98,23 +98,15 @@ const cartStore = useCartStore()
 
 // 页面加载时去后端拿数据
 onMounted(() => {
-  // // 1.扫码桌号拦截逻辑
-  // const token = route.query.table
-  // if (token) {
-  //   request.get(`/table/token/${token}`).then(res => {
-  //     if (res.code === 200 && res.data) {
-  //       diningStore.setTable(res.data)
-  //       // 延迟一点弹窗，防止和页面渲染冲突，体验更好
-  //       setTimeout(() => {
-  //         ElMessage.success(`欢迎光临半闲庭，当前桌号：${res.data.tableNo} (${res.data.area})`)
-  //       }, 500)
-  //     } else {
-  //       ElMessage.error("无效的桌码，请重新扫码")
-  //     }
-  //   }).catch(err => {
-  //     console.error("获取桌号失败", err)
-  //   })
-  // }
+  // 1. 判断是否是手机环境
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  // 2. 判断是否带有桌号参数
+  const tableToken = route.query.table
+
+  if (isMobile && tableToken) {
+    // 3. 强制跳转到移动端 hash 路由页面
+    window.location.replace(`${window.location.origin}/mobile.html#/index?table=${tableToken}`)
+  }
   // 1.扫码桌号拦截逻辑
   const token = route.query.table
   if (token) {

@@ -22,11 +22,21 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         long startTime = System.currentTimeMillis();
         request.setAttribute("requestStartTime", startTime);
-        // OPTIONS请求不做校验,
-        // 前后端分离的架构, 前端会发一个OPTIONS请求先做预检, 对预检请求不做校验
+
+        // OPTIONS请求不做校验
         if (request.getMethod().toUpperCase().equals("OPTIONS")) {
             return true;
         }
+
+        // 这里放行白名单接口
+        String requestURI = request.getRequestURI();
+        if (requestURI.equals("/common/login") ||
+                requestURI.equals("/common/register") ||
+                requestURI.equals("/common/retrievePassword") ||
+                requestURI.startsWith("/file/")) {
+            return true;
+        }
+
         String path = request.getRequestURL().toString();
         log.info("接口登录拦截：，path：{}", path);
         //获取header的token参数

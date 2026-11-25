@@ -279,7 +279,7 @@ function showQRCode(row) {
   }
 
   // 生成的内容是前台的扫码链接，带上 token 参数
-  const scanUrl = `${window.location.origin}/index?table=${row.qrToken}`
+  const scanUrl = `${window.location.origin}/mobile.html#/index?table=${row.qrToken}`
 
   QRCode.toDataURL(scanUrl, {
     width: 260,

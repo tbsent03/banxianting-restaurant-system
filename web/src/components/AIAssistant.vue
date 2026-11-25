@@ -15,18 +15,19 @@
         <el-icon @click="toggleChat" style="cursor: pointer;"><Close /></el-icon>
       </div>
       <div class="chat-content" ref="chatContentRef">
-        <!-- 快捷指令区域 -->
-        <div class="quick-actions" v-if="messages.length <= 2">
-          <span v-if="roleType === 'USER'" class="action-btn" @click="handleQuickAsk('帮我查一下我的最新订单状态')">查我的订单</span>
-          <span v-if="roleType === 'USER'" class="action-btn" @click="handleQuickAsk('帮我查一下我最近的订位信息')">查我的订座</span>
-          <span v-if="roleType === 'ADMIN'" class="action-btn" @click="handleQuickAsk('今天生意怎么样？')">今日经营概况</span>
-          <span v-if="roleType === 'ADMIN'" class="action-btn" @click="handleQuickAsk('帮我对比一下今天和昨天的营业额')">昨日营业对比</span>
-        </div>
-
         <div v-for="(msg, index) in messages" :key="index" :class="['msg', msg.role]">
           <span v-html="formatMessage(msg.content)"></span>
         </div>
         <div v-if="loading" class="msg assistant">思考中...</div>
+      </div>
+      <!-- 快捷指令区域 -->
+      <div class="quick-actions" >
+        <span v-if="roleType === 'USER'" class="action-btn" @click="handleQuickAsk('帮我查一下我的最新订单状态')">查我的订单</span>
+        <span v-if="roleType === 'USER'" class="action-btn" @click="handleQuickAsk('帮我查一下我最近的订位信息')">查我的订座</span>
+        <span v-if="roleType === 'USER'" class="action-btn" @click="handleQuickAsk('推荐几个招牌菜')">推荐招牌菜</span>
+        <span v-if="roleType === 'ADMIN'" class="action-btn" @click="handleQuickAsk('今天生意怎么样？')">今日经营概况</span>
+        <span v-if="roleType === 'ADMIN'" class="action-btn" @click="handleQuickAsk('帮我对比一下今天和昨天的营业额')">昨日营业对比</span>
+        <span v-if="roleType === 'ADMIN'" class="action-btn" @click="handleQuickAsk('最近哪些菜品卖得最好？')">热销菜品</span>
       </div>
       <div class="chat-input">
         <el-input
@@ -183,7 +184,12 @@ const handleQuickAsk = (text) => {
   gap: 8px;
   padding: 10px 15px;
   background: #fff;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #eee; /* 跟聊天区隔开 */
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.quick-actions::-webkit-scrollbar {
+  display: none;
 }
 .action-btn {
   font-size: 12px;
@@ -193,6 +199,7 @@ const handleQuickAsk = (text) => {
   color: #555;
   cursor: pointer;
   transition: all 0.2s;
+  flex-shrink: 0;
 }
 .action-btn:hover {
   background: #00BFFF;

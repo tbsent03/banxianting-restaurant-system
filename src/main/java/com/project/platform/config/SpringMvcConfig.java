@@ -21,7 +21,13 @@ public class SpringMvcConfig implements WebMvcConfigurer {
                         "/common/login",
                         "/common/register",
                         "/common/retrievePassword",
-                        "/file/**"
+                        "/file/**",
+                       // 顾客端先浏览、后登录需要的读接口
+                        "/category/list",
+                        "/dish/page",
+                        "/dish/selectById/**",
+                        "/table/token/**",
+                        "/review/page"
                 );
     }
 }
