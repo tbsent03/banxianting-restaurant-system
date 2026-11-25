@@ -42,7 +42,29 @@
 <img width="3040" height="1640" alt="image" src="https://github.com/user-attachments/assets/a669cacb-dd71-4c3a-a5aa-c749cce3670f" />
 |---用户管理---|
 <img width="3026" height="1658" alt="image" src="https://github.com/user-attachments/assets/8b075e62-15c8-4152-b65e-30fafa510e9e" />
-
+|---以下为手机端顾客浏览页面---|
+|---用户登录页面---|
+<img width="1078" height="2093" alt="194b638d345000f74134fb0f4707eb4c" src="https://github.com/user-attachments/assets/02e8740e-7e5b-4885-aa61-328dd76bec08" />
+|---用户注册页面---|
+<img width="1053" height="2074" alt="5db9382bbf2d7e1506a3a507b88fd8af" src="https://github.com/user-attachments/assets/2b98a5c3-bb11-4b56-bf36-83c1c5659fd8" />
+|---用户扫桌码后进入页面---|
+<img width="1073" height="2072" alt="1c27d2b614b62cfe33e73c6317ad2bd7" src="https://github.com/user-attachments/assets/2426fa77-ab96-4875-b5af-dfe69b778f36" />
+|---首页1---|
+<img width="1074" height="2057" alt="6b7b1d9f9f51b7ccec16a7598f1a3b17" src="https://github.com/user-attachments/assets/6c630d56-e8c2-42bd-8977-3fc52ab336fe" />
+|---首页2---|
+<img width="1074" height="2060" alt="c06809c19066aecb63763d866b7d6a8d" src="https://github.com/user-attachments/assets/0d860562-626c-432a-8ffa-4081d645dd11" />
+|---点餐页面---|
+<img width="1057" height="2105" alt="9758f101ab1b202684b00b6d1c9c8da6" src="https://github.com/user-attachments/assets/004fde59-796e-4f58-b650-64378fff8663" />
+|---点菜单 | 结算页面---|
+<img width="1060" height="2105" alt="7f9c213109d99773e8e144058b545137" src="https://github.com/user-attachments/assets/cd9b3795-5ec1-431a-a10d-c579c81130a7" />
+|---预订座位页面---|
+<img width="1063" height="2058" alt="d0acdbaede535a5054173b30803c0888" src="https://github.com/user-attachments/assets/502150f4-161e-4034-8104-7720b095f594" />
+|---"我的"信息---|
+<img width="1080" height="2046" alt="f709e193ed47fb348a0be9a9ba00fa63" src="https://github.com/user-attachments/assets/7849dd37-2e15-47bc-9a06-d643ec3c47f8" />
+|---查看我的订单---|
+<img width="1054" height="2067" alt="1abd6ea75a9d7d617df4aecbd82bb630" src="https://github.com/user-attachments/assets/b1194558-fae8-40ba-9bca-f4882a946fef" />
+|---查看我的预订---|
+<img width="1065" height="2093" alt="df0e1fe01c025ae4aced43d9c0fa523b" src="https://github.com/user-attachments/assets/dbb14a4e-8733-4c5d-aa1d-7f1a9ff6ee10" />
 
 ## 🚀 本地运行指南
 ### 1. 数据库准备
