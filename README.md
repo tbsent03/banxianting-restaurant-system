@@ -65,6 +65,8 @@
 <img width="1054" height="2067" alt="1abd6ea75a9d7d617df4aecbd82bb630" src="https://github.com/user-attachments/assets/b1194558-fae8-40ba-9bca-f4882a946fef" />
 |---查看我的预订---|
 <img width="1065" height="2093" alt="df0e1fe01c025ae4aced43d9c0fa523b" src="https://github.com/user-attachments/assets/dbb14a4e-8733-4c5d-aa1d-7f1a9ff6ee10" />
+|---手机端AI管家---|
+<img width="1059" height="2087" alt="65e8fdc073b6d07fe10ae95afa76ce25" src="https://github.com/user-attachments/assets/9f134537-d708-4d68-ba87-8ed5a10dac85" />
 
 ## 🚀 本地运行指南
 ### 1. 数据库准备
